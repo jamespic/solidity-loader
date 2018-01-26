@@ -70,6 +70,7 @@ describe('solidity-loader', function() {
     expect(result.toJson().errors).to.be.empty
   })
   it('will throw on errors', async function() {
-    // FIXME: Sort this out
+    let result = await compiler('Error.sol')
+    expect(result.toJson().errors).not.to.be.empty
   })
 })
