@@ -47,7 +47,17 @@ module.exports = function solidityLoader(source) {
         }
       }
       let output = solc.compileStandardWrapper(JSON.stringify(input), findImports)
-      callback(null, output)
+      let warningsAndErrors = JSON.parse(output).errors || []
+      let errors = warningsAndErrors.filter(x => x.severity == 'error')
+
+      for (let err of warningsAndErrors) console.error(err.formattedMessage)
+
+      if (errors.length > 0) {
+        callback(new Error(errors.map(x => x.formattedMessage)))
+      } else {
+        callback(null, output)
+      }
+
     } catch (e) {
       callback(e)
     }
