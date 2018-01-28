@@ -24,8 +24,7 @@ rules: [
       {loader: 'json-loader'},
       {loader: 'solidity-standard-json-loader', options: {optimize: true}}
     ]
-  },
-  {test: /\.ts$/, use: 'ts-loader', exclude: [/node_modules/]}
+  }
 ]
 ```
 
