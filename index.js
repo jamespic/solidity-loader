@@ -38,6 +38,9 @@ module.exports = function solidityLoader(source) {
         settings: {
           optimizer: optimize ? {enabled: true, runs: 200} : {enabled: false},
           libraries: options.links,
+          metadata: {
+            useLiteralContent: debug
+          },
           outputSelection: {
             '*': {
               '*': debug ? ['*'] : ['abi', 'evm.bytecode.object', 'evm.bytecode.linkReferences'],

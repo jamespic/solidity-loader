@@ -1,6 +1,6 @@
 {
   "name": "solidity-standard-json-loader",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A Webpack loader, that produces Solidity standard JSON",
   "main": "index.js",
   "scripts": {

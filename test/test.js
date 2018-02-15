@@ -23,6 +23,7 @@ describe('solidity-loader', function() {
     expect(output).to.have.nested.property('sources.Simple\\.sol.ast')
     expect(output).to.have.nested.property('sources.Simple\\.sol.legacyAST')
     expect(JSON.parse(output.contracts['Simple.sol'].Simple.metadata).settings.optimizer.enabled).to.equal(false)
+    expect(JSON.parse(output.contracts['Simple.sol'].Simple.metadata)).to.have.nested.property('sources.Simple\\.sol.content')
   })
   it('optimizes, when configured to do so', async function() {
     let result = await compiler('Simple.sol', {debug: true, optimize: true})
